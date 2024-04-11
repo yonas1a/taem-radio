@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <style>
+body{
+    margin: 0px;
+    overflow: hidden;
+}
+#con {
+    background: rgb(70, 70, 70);
+    background: radial-gradient(circle, rgba(70, 70, 70, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    height: 750px;
+}
+div#con2 {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+}
+img#taem_logo {
+    width: 350px;
+    margin-top: 23px;
+}
+#logo {
+    text-align: center;
+}
+
+div#button {
+    text-align: center;
+    height: 365px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 41px;
+}
+img#btn_img {
+    width: 280px;
+}
+
+
+
+div#con3 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding-top: 65px;
+    justify-content: center;
+    opacity: 30%;
+}
+.lines {
+    width: 2%;
+    height: 50px;
+    background: yellow;
+    margin: 8px;
+    border-radius: 30px;
+}
+
+#line1, #line30 {
+    opacity: 5%;
+}
+#line2, #line29 {
+    opacity: 10%;
+}
+#line3, #line28 {
+    opacity: 20%;
+}
+#line4, #line27 {
+    opacity: 30%;
+}
+#line5, #line26 {
+    opacity: 50%;
+}
+#line6, #line25 {
+    opacity: 70%;
+}
+#line7, #line24 {
+    opacity: 90%;
+}
+    </style>
+    <script src="https://kit.fontawesome.com/906522d9f3.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div id="con">
+        <div id="con2">
+            <div id="logo" class="div1"><img id="taem_logo" src="logo.png"></div>
+            <div id="button" class="div1"><img onclick="audio_control()" id="btn_img" src="play_btn.png"></div>
+            <div id="control" class="div1">
+                <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" onchange="changeVolume()">
+                <i id="volumeIcon" class="fas fa-volume-up"></i>
+            </div>
+        </div>
+        <div id="con3">
+
+        </div>
+    </div>
+    <script>
+        
+
+        var audio = new Audio('https://stream-158.zeno.fm/ffg8htkh1k0uv?zs=1hDKh8LZQ068PveaOWdpWg&amp;zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJmZmc4aHRraDFrMHV2IiwiaG9zdCI6InN0cmVhbS0xNTguemVuby5mbSIsImp0aSI6IjFoREtoOExaUTA2OFB2ZWFPV2RwV2ciLCJpYXQiOjE3MTI3NTk0MjIsImV4cCI6MTcxMjc1OTQ4Mn0.-WV-UG3jSfeT_vpxFZB0ygudUShgxqgyztnJ9oS32Jo&amp;zttl=5');
+        var img = document.getElementById("btn_img");
+        var volumeControl = document.getElementById("volumeControl");
+        var intervalID = "0909";
+        
+        var parentDiv = document.getElementById("con3");
+        for (var i = 1; i <= 30; i++) {
+            var newDiv = document.createElement("div");
+            newDiv.className = "lines";
+            newDiv.id = "line" + i;
+            parentDiv.appendChild(newDiv);
+        }
+
+        var lines = document.getElementsByClassName("lines");
+        var isAudioOn = false;
+        function audio_control(){
+            if(isAudioOn){
+                isAudioOn = false;
+                audio.pause();
+                img.src = "play_btn.png";
+                clearInterval(intervalID);
+
+                for (var i = 0; i < 30; i++) {
+                    lines[i].style.transitionDuration = 1 + "s";
+                }
+                lines[1].style.height = 50 + "px" ;
+                lines[2].style.height = 50 + "px" ;
+                lines[3].style.height = 50 + "px" ;
+                lines[4].style.height = 50 + "px" ;
+                lines[5].style.height = 50 + "px" ;
+                lines[6].style.height = 50 + "px" ;
+                lines[7].style.height = 50 + "px" ;
+                lines[8].style.height = 50 + "px" ;
+                lines[9].style.height = 50 + "px" ;
+                lines[10].style.height = 50 + "px" ;
+
+                lines[11].style.height = 50 + "px" ;
+                lines[12].style.height = 50 + "px" ;
+                lines[13].style.height = 50 + "px" ;
+                lines[14].style.height = 50 + "px" ;
+                lines[15].style.height = 50 + "px" ;
+                lines[16].style.height = 50 + "px" ;
+                lines[17].style.height = 50 + "px" ;
+                lines[18].style.height = 50 + "px" ;
+                lines[19].style.height = 50 + "px" ;
+                lines[20].style.height = 50 + "px" ;
+
+                lines[21].style.height = 50 + "px" ;
+                lines[22].style.height = 50 + "px" ;
+                lines[23].style.height = 50 + "px" ;
+                lines[24].style.height = 50 + "px" ;
+                lines[25].style.height = 50 + "px" ;
+                lines[26].style.height = 50 + "px" ;
+                lines[27].style.height = 50 + "px" ;
+                lines[28].style.height = 50 + "px" ;
+                lines[29].style.height = 50 + "px" ;
+                lines[0].style.height = 50 + "px" ;
+            }
+            else{
+                isAudioOn = true;
+                audio.play();
+                img.src = "pause_btn.png";
+
+
+                function spectrum(){
+                var current_hight = 50 ; 
+                var first_min = 60;
+                var first_max = 70;
+
+                
+                lines[1].style.height = current_hight + Math.floor(Math.random() * first_max) + first_min + "px";
+                lines[2].style.height = current_hight + Math.floor(Math.random() * first_max) + first_min + "px";
+                lines[3].style.height = current_hight + Math.floor(Math.random() * first_max) + first_min + "px";
+                lines[4].style.height = current_hight + Math.floor(Math.random() * first_max) + first_min + "px";
+                lines[5].style.height = current_hight + Math.floor(Math.random() * first_max) + first_min + "px";
+                lines[6].style.height = current_hight + Math.floor(Math.random() * first_max) + first_min + "px";
+                lines[7].style.height = current_hight + Math.floor(Math.random() * first_max) + first_min + "px";
+                lines[8].style.height = current_hight + Math.floor(Math.random() * first_max) + first_min + "px";
+                lines[9].style.height = current_hight + Math.floor(Math.random() * first_max) + first_min + "px";
+                lines[10].style.height = current_hight + Math.floor(Math.random() * first_max) + first_min + "px";
+
+                var second_min = 100;
+                var second_max = 120;
+
+                lines[11].style.height = current_hight + Math.floor(Math.random() * second_max) + second_min + "px";
+                lines[12].style.height = current_hight + Math.floor(Math.random() * second_max) + second_min + "px";
+                lines[13].style.height = current_hight + Math.floor(Math.random() * second_max) + second_min + "px";
+                lines[14].style.height = current_hight + Math.floor(Math.random() * second_max) + second_min + "px";
+                lines[15].style.height = current_hight + Math.floor(Math.random() * second_max) + second_min + "px";
+                lines[16].style.height = current_hight + Math.floor(Math.random() * second_max) + second_min + "px";
+                lines[17].style.height = current_hight + Math.floor(Math.random() * second_max) + second_min + "px";
+                lines[18].style.height = current_hight + Math.floor(Math.random() * second_max) + second_min + "px";
+                lines[19].style.height = current_hight + Math.floor(Math.random() * second_max) + second_min + "px";
+                lines[20].style.height = current_hight + Math.floor(Math.random() * second_max) + second_min + "px";
+
+                var third_min = 150;
+                var third_max = 170;
+
+                lines[21].style.height = current_hight + Math.floor(Math.random() * third_max) + third_min + "px";
+                lines[22].style.height = current_hight + Math.floor(Math.random() * third_max) + third_min + "px";
+                lines[23].style.height = current_hight + Math.floor(Math.random() * third_max) + third_min + "px";
+                lines[24].style.height = current_hight + Math.floor(Math.random() * third_max) + third_min + "px";
+                lines[25].style.height = current_hight + Math.floor(Math.random() * third_max) + third_min + "px";
+                lines[26].style.height = current_hight + Math.floor(Math.random() * third_max) + third_min + "px";
+                lines[27].style.height = current_hight + Math.floor(Math.random() * third_max) + third_min + "px";
+                lines[28].style.height = current_hight + Math.floor(Math.random() * third_max) + third_min + "px";
+                lines[29].style.height = current_hight + Math.floor(Math.random() * third_max) + third_min + "px";
+                lines[0].style.height = current_hight + Math.floor(Math.random() * third_max) + third_min + "px";
+                }
+                intervalID = setInterval(spectrum, 150);
+                for (var i = 0; i < 30; i++) {
+                    lines[i].style.transitionDuration = 0 + "s";
+                }
+            }
+        }
+
+        
+        
+
+        
+    </script>
+</body>
+</html>
