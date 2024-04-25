@@ -24,7 +24,7 @@ div#con2 {
     width: 100%;
 }
 img#taem_logo {
-    width: 350px;
+    width: 249px;
     margin-top: 23px;
 }
 #logo {
@@ -227,6 +227,14 @@ div#con3 {
         const screenHeight = window.innerHeight;
         // Set body height
         document.body.style.height = `${screenHeight}px`;
+
+        function updateBodyHeight() {
+          const screenHeight = window.innerHeight;
+          document.body.style.height = `${screenHeight}px`;
+        }
+        
+        window.addEventListener('resize', updateBodyHeight);
+        updateBodyHeight();
         
     </script>
 </body>
